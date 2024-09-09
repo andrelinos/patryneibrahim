@@ -1,4 +1,7 @@
 import '@/styles/globals.css'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 
 import type { Metadata } from 'next'
 import { Inter as FontSans, Poppins } from 'next/font/google'

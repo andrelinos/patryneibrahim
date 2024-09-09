@@ -25,7 +25,7 @@ const config = {
       },
       colors: {
         brand: {
-          green: { 500: '#0b4208' },
+          green: { 500: '#0b4208', 300: '#739600' },
         },
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',

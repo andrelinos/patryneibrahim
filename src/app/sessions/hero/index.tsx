@@ -37,7 +37,7 @@ export function Hero() {
           Agendar consulta
         </Link>
         <Link
-          href="/lista-de-espera"
+          href="/escola-da-an"
           className="mx-auto inline-flex h-10 w-full max-w-xs items-center justify-center whitespace-nowrap rounded-md bg-secondary text-sm font-medium text-white ring-offset-background transition-colors hover:bg-secondary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 lg:mx-0"
         >
           Escola da AN para cães
