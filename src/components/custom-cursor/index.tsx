@@ -17,6 +17,7 @@ export const CustomCursor = () => {
   const [cursorColor, setCursorColor] = useState<any>('text-zinc-500')
 
   const [clicked, setClicked] = useState(false)
+  const [isMobile, setIsMobile] = useState(window?.innerWidth <= 768)
 
   useEffect(() => {
     const handleMouseMove = (e: { clientX: any; clientY: any }) => {
@@ -34,29 +35,39 @@ export const CustomCursor = () => {
       }, 800)
     }
 
+    // Função para verificar o tamanho da tela
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        setIsMobile(true)
+      } else {
+        setIsMobile(false)
+      }
+    }
+
     const handleMouseOver = (e: any) => {
       const tagName = e.target.tagName.toLowerCase()
-
-      // setCursorColor(CURSOR_COLORS[tagName] || CURSOR_COLORS.default)
+      setCursorColor(CURSOR_COLORS[tagName] || CURSOR_COLORS.default)
     }
 
     window.addEventListener('mousemove', handleMouseMove)
     window.addEventListener('mousedown', handleMouseDown)
     window.addEventListener('mouseover', handleMouseOver)
+    window.addEventListener('resize', handleResize)
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove)
       window.removeEventListener('mousedown', handleMouseDown)
       window.removeEventListener('mouseover', handleMouseOver)
+      window.removeEventListener('resize', handleResize)
     }
   }, [])
 
-  return (
+  return !isMobile ? (
     <>
       <div
         style={{ top: position.y, left: position.x }}
         ref={cursorRef}
-        className={`pointer-events-none fixed z-50 size-3 -translate-x-1/2 -translate-y-1/2 rounded-full transition-all duration-300 ease-in${cursorColor}`}
+        className={`pointer-events-none fixed z-50 hidden size-3 -translate-x-1/2 -translate-y-1/2 rounded-full transition-all duration-300 ease-in lg:flex${cursorColor}`}
       />
       <div
         style={{ top: position.y, left: position.x }}
@@ -66,5 +77,7 @@ export const CustomCursor = () => {
         <PawPrint size={32} strokeWidth={1.5} className="text-green-600" />
       </div>
     </>
+  ) : (
+    <div />
   )
 }

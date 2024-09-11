@@ -42,7 +42,7 @@ export function InstagramPosts() {
               className="mt-6 max-h-[60rem] w-[30%] rounded-lg p-2 shadow-lg"
             >
               <div className="">
-                <InstagramEmbed url={post.url} width="100%" />
+                <InstagramEmbed url={post.url} width="100%" captioned />
               </div>
             </ScrollArea>
           )

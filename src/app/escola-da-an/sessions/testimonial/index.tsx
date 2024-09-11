@@ -1,43 +1,57 @@
-import { Card, CardContent } from '@/components/ui/card'
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel'
+'use client'
+
+import { EffectCoverflow, Pagination } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react'
+
+import { ScrollArea } from '@/components/ui/scroll-area'
 
 export function Testimonial() {
   return (
-    <div className="flex w-full flex-col justify-center gap-8 bg-white pt-8">
-      <h2 className="py-8 text-center text-3xl font-medium text-secondary">
+    <div className="grid w-full grid-cols-1 gap-8 bg-white pt-8">
+      <h2 className="px-6 pt-8 text-center text-3xl font-medium text-secondary">
         Veja o que os meus alunos estão falando sobre o curso
       </h2>
-      <div className="flex h-auto w-full">
-        <Carousel
-          opts={{
-            align: 'start',
+      <div className="flex h-auto w-full max-w-full">
+        <Swiper
+          effect={'coverflow'}
+          grabCursor={true}
+          centeredSlides={true}
+          slidesPerView={'auto'}
+          coverflowEffect={{
+            rotate: 60,
+            stretch: 0,
+            depth: 200,
+            modifier: 1,
+            slideShadows: true,
           }}
-          className="w-full max-w-sm"
+          pagination={true}
+          modules={[EffectCoverflow, Pagination]}
+          className=""
         >
-          <CarouselContent>
-            {Array.from({ length: 5 }).map((_, index) => (
-              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                <div className="p-1">
-                  <Card>
-                    <CardContent className="flex aspect-square items-center justify-center p-6">
-                      <span className="text-3xl font-semibold">
-                        {index + 1}
-                      </span>
-                    </CardContent>
-                  </Card>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
+          {Array.from({ length: 5 }).map((_, index) => (
+            <SwiperSlide
+              key={index}
+              className="flex flex-col overflow-hidden rounded-lg bg-brand-green-500 p-0 px-4 py-6"
+              style={{
+                background: 'rgb(11 66 8 / var(--tw-bg-opacity))',
+              }}
+            >
+              <ScrollArea className="h-44 w-full">
+                <p className="text-justify text-sm tracking-tight text-white">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. A
+                  neque, eum mollitia magni illum ipsam eaque cupiditate quae,
+                  et soluta voluptates. Provident mollitia dolorum, rerum in
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. A
+                  neque, eum mollitia magni illum ipsam eaque cupiditate quae,
+                  et soluta voluptates. Provident mollitia dolorum, rerum in
+                  eveniet ullam incidunt! Voluptatibus ipsum distinctio
+                  quibusdam numquam consequatur.
+                </p>
+              </ScrollArea>
+              <h3 className="py-2 text-zinc-100">José Paulo</h3>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </div>
   )

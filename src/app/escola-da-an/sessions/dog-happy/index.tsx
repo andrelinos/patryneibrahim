@@ -6,8 +6,8 @@ export function DogHappy() {
       <h2 className="py-8 text-center text-3xl font-medium text-white">
         Se você quer que o seu cão
       </h2>
-      <div className="flex h-auto w-full">
-        <div className="w-1/3 p-4">
+      <div className="flex h-auto w-full flex-wrap">
+        <div className="p-4 md:basis-1/2 lg:basis-1/3">
           <div className="group h-80 overflow-hidden rounded-lg bg-white shadow-lg">
             <span className="flex max-h-44 w-full overflow-hidden">
               <Image
@@ -28,7 +28,7 @@ export function DogHappy() {
             </p>
           </div>
         </div>
-        <div className="w-1/3 p-4">
+        <div className="p-4 md:basis-1/2 lg:basis-1/3">
           <div className="group h-80 overflow-hidden rounded-lg bg-white shadow-lg">
             <span className="flex max-h-44 w-full overflow-hidden">
               <Image
@@ -46,7 +46,7 @@ export function DogHappy() {
             </p>
           </div>
         </div>
-        <div className="w-1/3 p-4">
+        <div className="p-4 md:basis-1/2 lg:basis-1/3">
           <div className="group h-80 overflow-hidden rounded-lg bg-white shadow-lg">
             <span className="flex max-h-44 w-full overflow-hidden">
               <Image
