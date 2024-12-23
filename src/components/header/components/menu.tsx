@@ -33,7 +33,7 @@ export function Menu() {
             <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
               <li className="row-span-3">
                 <NavigationMenuLink asChild>
-                  <a
+                  <Link
                     className="flex size-full select-none flex-col justify-end rounded-md bg-secondary from-muted/50 to-muted py-6 no-underline outline-none focus:shadow-md"
                     href="/"
                   >
@@ -41,20 +41,20 @@ export function Menu() {
                       <Image
                         src="/assets/images/patryne-bg.png"
                         alt=""
-                        width={100}
-                        height={300}
+                        width={500}
+                        height={500}
                         className="w-full "
                       />
                     </span>
-                    <div className="bg-white p-4">
-                      <div className="mb-2 mt-4 text-2xl font-medium text-secondary">
+                    <div className="bg-white py-4">
+                      <div className="text-center text-2xl font-medium text-secondary">
                         Dra. Patryne Ibrahim
                       </div>
-                      <p className="text-sm leading-tight text-primary">
+                      <p className="w-full bg-primary py-2 text-center text-sm font-medium leading-tight text-white">
                         Veterinária Nutróloga
                       </p>
                     </div>
-                  </a>
+                  </Link>
                 </NavigationMenuLink>
               </li>
               <div className="flex w-full flex-col gap-4 rounded-lg border border-gray-100 px-2 pt-6 ">
@@ -67,7 +67,7 @@ export function Menu() {
                 </p>
               </div>
               <ListItem
-                href="/lista-de-espera"
+                href="http://localhost:3000/lista-de-espera"
                 title="Escola da alimentação natural"
               >
                 Lista de espera - Escola da AN para cães

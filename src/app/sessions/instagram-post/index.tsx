@@ -6,12 +6,6 @@ import { ScrollArea } from '@/components/ui/scroll-area'
 
 const postsInstagram = [
   {
-    url: 'https://www.instagram.com/p/C_eMnBbJW30/?img_index=1',
-  },
-  {
-    url: 'https://www.instagram.com/p/C_CAprGORQx/?img_index=1',
-  },
-  {
     url: 'https://www.instagram.com/p/C-yttTIOxd_/?img_index=1',
   },
   {
@@ -34,15 +28,15 @@ export function InstagramPosts() {
       <h2 className="text-3xl font-semibold text-secondary">
         Nossas dicas no Instagram
       </h2>
-      <div className="mx-auto flex h-auto w-full max-w-6xl flex-wrap justify-center gap-4">
+      <div className="mx-auto flex h-auto w-fit max-w-6xl flex-wrap justify-center gap-4 lg:justify-between">
         {postsInstagram.map((post, i) => {
           return (
             <ScrollArea
-              key={i}
-              className="mt-6 max-h-[60rem] w-[30%] rounded-lg p-2 shadow-lg"
+              key={String(i)}
+              className="mt-6 max-h-[60rem] rounded-lg p-2 shadow-lg sm:w-2/5 lg:w-[30%]"
             >
               <div className="">
-                <InstagramEmbed url={post.url} width="100%" captioned />
+                <InstagramEmbed url={post.url} width="100%" />
               </div>
             </ScrollArea>
           )

@@ -11,13 +11,16 @@ const CURSOR_COLORS = {
 
 export const CustomCursor = () => {
   const cursorRef = useRef(null)
+  const [isLoading, setIsLoading] = useState(true)
 
   const [position, setPosition] = useState({ x: 0, y: 0 })
 
+  const [clicked, setClicked] = useState(false)
   const [cursorColor, setCursorColor] = useState<any>('text-zinc-500')
 
-  const [clicked, setClicked] = useState(false)
-  const [isMobile, setIsMobile] = useState(window?.innerWidth <= 768)
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== 'undefined' && window?.innerWidth <= 768
+  )
 
   useEffect(() => {
     const handleMouseMove = (e: { clientX: any; clientY: any }) => {
@@ -62,17 +65,25 @@ export const CustomCursor = () => {
     }
   }, [])
 
+  useEffect(() => {
+    setIsLoading(false)
+  }, [])
+
+  if (isLoading) {
+    return <div className="font-bold text-3xl text-white">Loading...</div>
+  }
+
   return !isMobile ? (
     <>
       <div
         style={{ top: position.y, left: position.x }}
         ref={cursorRef}
-        className={`pointer-events-none fixed z-50 hidden size-3 -translate-x-1/2 -translate-y-1/2 rounded-full transition-all duration-300 ease-in lg:flex${cursorColor}`}
+        className={`-translate-x-1/2 -translate-y-1/2 pointer-events-none fixed z-50 hidden size-3 rounded-full transition-all duration-300 ease-in lg:flex${cursorColor}`}
       />
       <div
         style={{ top: position.y, left: position.x }}
         ref={cursorRef}
-        className={`pointer-events-none fixed z-50 size-8 -translate-x-1/2 -translate-y-1/2 rounded-full p-0 transition-all duration-500 ease-in${cursorColor} `}
+        className={`-translate-x-1/2 -translate-y-1/2 pointer-events-none fixed z-50 size-8 rounded-full p-0 transition-all duration-500 ease-in${cursorColor} `}
       >
         <PawPrint size={32} strokeWidth={1.5} className="text-green-600" />
       </div>

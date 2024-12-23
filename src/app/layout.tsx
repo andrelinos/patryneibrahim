@@ -41,13 +41,24 @@ export default function RootLayout({
       </head>
       <body
         className={cn(
-          'bg-background h-screen overflow-hidden font-sans antialiased',
+          'h-screen overflow-hidden bg-background font-sans antialiased',
           fontSans.variable,
-          fontPoppins.variable,
+          fontPoppins.variable
         )}
       >
+        <div className=" absolute inset-x-0 top-0 z-50 bg-red-200 p-6 py-1 text-center text-xs text-zinc-600">
+          Este projeto, foi apenas um exemplo em treinamento de criação de
+          sites. Site oficial usado como inspiração:{' '}
+          <a
+            href="https://patryneibrahim.com.br/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            patryneibrahim.com.br
+          </a>
+        </div>
         <Header />
-        <ScrollArea className="flex size-full min-h-screen flex-col justify-between bg-green-950 pt-20">
+        <ScrollArea className="flex size-full min-h-screen flex-col justify-between bg-green-950 pt-24">
           {children}
           <Footer />
         </ScrollArea>

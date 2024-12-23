@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { Navigation, Pagination, Parallax } from 'swiper/modules'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -97,11 +98,11 @@ const modules = [
 export function CourseModules() {
   return (
     <div className="grid w-full grid-cols-1 bg-primary">
-      <div className="flex w-full max-w-6xl flex-col items-center bg-brand-green-300 pt-8">
+      <div className="mx-auto flex w-full flex-col items-center bg-brand-green-300 px-6 pt-8">
         <h2 className="py-8 text-center text-3xl font-medium text-white">
           Conheça tudo o que você terá acesso
         </h2>
-        <h3 className="text-xl font-light text-muted">
+        <h3 className="text-center text-xl font-light text-muted">
           (Passe para o lado para visualizar os módulos)
         </h3>
       </div>
@@ -111,44 +112,56 @@ export function CourseModules() {
         pagination={{
           clickable: true,
         }}
+        autoplay={true}
         navigation={true}
         modules={[Parallax, Pagination, Navigation]}
-        className="flex flex-col bg-primary"
+        className="flex flex-col"
       >
         <div
           slot="container-start"
-          className="absolute inset-x-0 h-full w-[130%] bg-cover"
+          className="absolute inset-x-0 h-[800px]  w-[130%]"
           data-swiper-parallax="-23%"
-        ></div>
+        />
         {modules?.map((module, i) => (
-          <SwiperSlide key={i} className="relative bg-brand-green-300 py-12">
-            <img
-              src="https://picsum.photos/id/237/200/300
-"
-              alt=""
-              className="absolute inset-0 object-cover"
-            />
-            <div className="flex flex-col justify-start gap-2 bg-primary text-left text-white">
-              <div
-                className="text-4xl font-semibold"
-                data-swiper-parallax="-300"
-              >
-                {module.title}
-              </div>
-              <div className="text-xl" data-swiper-parallax="-200">
-                {module.description}
-              </div>
-              <div
-                className="max-w-96 text-sm leading-5"
-                data-swiper-parallax="-100"
-              >
-                <div className="flex flex-col gap-2">
-                  {module.content.map((content, i) => (
-                    <p key={i}>
-                      {content}
-                      <br />
-                    </p>
-                  ))}
+          <SwiperSlide
+            key={String(i)}
+            className="relative  flex w-full items-center justify-center lg:min-h-[500px]"
+          >
+            <div className="hidden lg:flex lg:size-full">
+              <Image
+                width={1080}
+                height={400}
+                src="/assets/images/dog-flying.jpg"
+                alt=""
+                className="size-full object-cover"
+              />
+            </div>
+            <div className="z-10 flex size-full w-full flex-col items-center justify-center gap-2 bg-brand-green-500 px-8 py-4 text-left text-white">
+              <div className="space-y-6">
+                <div
+                  className="px-6 text-4xl font-semibold lg:px-0"
+                  data-swiper-parallax="-300"
+                >
+                  {module.title}
+                </div>
+                <div
+                  className="px-6 text-xl lg:px-0"
+                  data-swiper-parallax="-200"
+                >
+                  {module.description}
+                </div>
+                <div
+                  className="max-w-96 text-sm leading-5"
+                  data-swiper-parallax="-100"
+                >
+                  <div className="flex flex-col gap-2 px-6 lg:px-0">
+                    {module.content.map((content, i) => (
+                      <p key={String(i)}>
+                        {content}
+                        <br />
+                      </p>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -156,7 +169,7 @@ export function CourseModules() {
         ))}
       </Swiper>
 
-      <div className="flex w-full max-w-6xl flex-col items-center bg-brand-green-300 py-8">
+      <div className="flex w-full flex-col items-center bg-brand-green-300 px-6 py-8">
         <h3 className="text-xl font-light text-muted">
           Além de materiais complementares, para nada passar em branco.
         </h3>

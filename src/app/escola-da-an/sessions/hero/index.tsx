@@ -1,7 +1,7 @@
 export function HeroAn() {
   return (
     <div className="flex w-full flex-col justify-center gap-8 bg-brand-green-300 pb-16 shadow-lg">
-      <span className="px-6 py-1 text-center font-poppins text-white">
+      <span className="bg-orange-500 px-6 py-1 text-center font-poppins text-white">
         ÚLTIMAS VAGAS COM 400 REAIS DE DESCONTO!
       </span>
       <h2 className="py-8 text-center text-3xl font-medium text-white">
